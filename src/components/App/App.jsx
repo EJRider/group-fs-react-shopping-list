@@ -4,6 +4,8 @@ import axios from 'axios';
 import Header from '../Header/Header.jsx'
 import './App.css';
 
+import List from '../List/List'
+
 
 function App() {
 
@@ -17,6 +19,7 @@ function App() {
         axios.get('/list')
         .then(response => {
             setList(response.data)
+        
         })
         .catch(err => {
             alert('error getting list');
@@ -54,7 +57,9 @@ function App() {
                         </tr>
                     </thead>
                     <tbody>
-
+                        < List 
+                            list={list}
+                        />
                     </tbody>
                 </table>
             </main>
