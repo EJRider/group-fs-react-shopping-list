@@ -105,8 +105,10 @@ function App() {
 
                 <div class='list'>
                     <h2>Shopping List</h2>
-                    <button onClick={resetPurchases}>Reset purchases</button>
-                    <button  onClick={deleteList}>Clear table</button>
+                    <section class='confusingBtns'>
+                        <button onClick={resetPurchases}>Reset purchases</button>
+                        <button  onClick={deleteList}>Clear table</button>
+                    </section>
                     <table>
                         <thead>
                             <tr>
