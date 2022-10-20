@@ -67,3 +67,35 @@ router.delete('/:id', (req,res)=>{
             res.sendStatus(500);
         });
 });
+
+
+
+router.post('/', (req, res) => {
+
+    const item = req.body;
+    console.body(item);
+
+    const sqlText = `INSERT INTO "list" ("item","quantity","unit")
+	                VALUES ($1, $2, $3);`;
+
+
+
+    const sqlParams = [
+        item.item,
+        item.quantity,
+        item.unit
+    ]
+
+
+        pool.query(sqlText, [sqlParams])
+            .then((dbRes) => {
+                console.log('POST item complete', item)
+                res.sendStatus(201);
+            })
+            .catch((error) => {
+                console.log('Error in list.router, ', error)
+                res.sendStatus(500);
+            })
+
+
+});
