@@ -39,29 +39,31 @@ function App() {
                     <button>Submit</button>
                 </form>
                 <br></br>
-                <h2>Shopping List</h2>
-                <button>Reset</button>
-                <button>Clear</button>
-                <table>
-                    <thead>
-                        <tr>
-                            <td>
-                                Item
-                            </td>
-                            <td>
-                                Quantity
-                            </td>
-                            <td>
-                                Settings
-                            </td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        < List 
-                            list={list}
-                        />
-                    </tbody>
-                </table>
+                <div class='list'>
+                    <h2>Shopping List</h2>
+                    <button>Reset</button>
+                    <button>Clear</button>
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>
+                                    Item
+                                </td>
+                                <td>
+                                    Quantity
+                                </td>
+                                <td>
+                                    Settings
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            < List 
+                                list={list}
+                            />
+                        </tbody>
+                    </table>
+                </div>
             </main>
         </div>
     );
