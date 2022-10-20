@@ -23,3 +23,47 @@ router.get('/', (req, res) => {
 });
 
 
+router.delete('/destroy', (req,res)=>{
+    console.log('erasing everything');
+    const sqlText = `
+        DROP TABLE "list";
+
+        CREATE TABLE "list" (
+            "id" SERIAL PRIMARY KEY,
+            "item" VARCHAR (80) NOT NULL,
+            "quantity" DECIMAL NOT NULL,
+            "unit" VARCHAR (20),
+              "purchased" BOOLEAN DEFAULT FALSE
+        );
+    `
+    pool.query(sqlText)
+            .then(dbRes=>{
+                console.log('destroying table', dbRes);
+                res.sendStatus(200);
+            })
+            .catch(err =>{
+                console.error('Error in destroying table', err)
+                res.sendStatus(500);
+            })
+})
+
+
+router.delete('/:id', (req,res)=>{
+    console.log('in routerDelete')
+
+    const taskId = req.params.id;
+    const sqlText = `
+        DELETE FROM "list"
+        WHERE "id" = $1;
+    `;
+    const sqlParams = [taskId]
+    pool.query(sqlText,sqlParams)
+        .then(dbRes=>{
+            console.log('deleting', dbRes);
+            res.sendStatus(200);
+        })
+        .catch(err =>{
+            console.error('Error in deleting', err);
+            res.sendStatus(500);
+        });
+});
