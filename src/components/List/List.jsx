@@ -1,11 +1,14 @@
-import ListItem from "../App/ListItem/ListItem";
-function List({list, deleteItem}) {
-
-    
+function List({list}) {
    return (
-    list.map(item => (
-       <ListItem item={item} key={item.id} deleteItem={deleteItem}/>
-   ))
+    <>
+    {list.map(item => (
+       <tr key={item.id}>
+           <td>{item.item}</td>
+           <td>{item.quantity}</td>
+           <td>{item.unit}</td>
+       </tr>
+   ))}
+   </>
 
    )
    
