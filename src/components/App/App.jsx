@@ -66,32 +66,7 @@ function App() {
                     <input placeholder="Unit"></input>
                     <button>Submit</button>
                 </form>
-                <br></br>
-                   <h2>Shopping List</h2>
-                <button onClick={deleteList}>Reset</button>
-                <button>Clear</button>
-                <table>
-                    <thead>
-                        <tr>
-                            <td>
-                                Item
-                            </td>
-                            <td>
-                                Quantity
-                            </td>
-                            <td>
-                                Settings
-                            </td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        < List 
-                            list={list}
-                            deleteItem={deleteItem}
-                        />
-                    </tbody>
-                </table>
-=======
+            
                 <div class='list'>
                     <h2>Shopping List</h2>
                     <button>Reset</button>
