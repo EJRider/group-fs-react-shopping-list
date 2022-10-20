@@ -69,7 +69,7 @@ function App() {
             
                 <div class='list'>
                     <h2>Shopping List</h2>
-                    <button>Reset</button>
+                    <button onClick={deleteList}>Reset</button>
                     <button>Clear</button>
                     <table>
                         <thead>
@@ -88,6 +88,7 @@ function App() {
                         <tbody>
                             < List 
                                 list={list}
+                                deleteItem={deleteItem}
                             />
                         </tbody>
                     </table>
