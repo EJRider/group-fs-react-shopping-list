@@ -9,7 +9,35 @@ function App() {
         <div className="App">
             <Header />
             <main>
-                <p>Under Construction...</p>
+                <form>
+                    <h2>Add Item</h2>
+                    <input placeholder="Item"></input>
+                    <input placeholder="Quantity"></input>
+                    <input placeholder="Unit"></input>
+                    <button>Submit</button>
+                </form>
+                <br></br>
+                <h2>Shopping List</h2>
+                <button>Reset</button>
+                <button>Clear</button>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>
+                                Item
+                            </td>
+                            <td>
+                                Quantity
+                            </td>
+                            <td>
+                                Settings
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
             </main>
         </div>
     );
