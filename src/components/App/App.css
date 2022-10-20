@@ -1,4 +1,59 @@
+body {
+  background-color: rgb(231, 234, 220);
+}
+
 main {
+  background-color: ;
   width: 90%;
   margin: auto;
+}
+
+h2 {
+  color:rgb(143, 147, 129);
+}
+
+button {
+  background-color: white;
+  color:rgb(133, 122, 136);
+  border: none;
+  border-radius: 10em;
+  box-shadow: 1px 1px 3px 1px rgb(178, 172, 179);
+  margin: 5px 3px;
+}
+
+button:hover {
+  background-color: rgb(210, 186, 215);
+}
+
+input {
+  background-color: white;
+  color:rgb(133, 122, 136);
+  border: none;
+  margin: 3px;
+}
+
+table {
+  background-color: white;
+  height: auto;
+  width: 50em;
+  margin-top: 8px;
+}
+thead {
+  font-weight: bold;
+  color:rgb(133, 122, 136);
+
+}
+
+tbody > tr {
+  color:rgb(133, 122, 136);
+}
+
+.list {
+  border:3px solid rgba(143, 147, 129, 0.368);
+  padding-bottom: 1.5em;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  height: auto;
+  width: 50em;
+  margin: 3em auto;
 }
