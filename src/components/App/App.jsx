@@ -1,10 +1,17 @@
 import React from 'react';
-
 import Header from '../Header/Header.jsx'
 import './App.css';
+import axios from 'axios';
 
 
 function App() {
+
+   
+
+
+
+
+
     return (
         <div className="App">
             <Header />
@@ -18,7 +25,6 @@ function App() {
                 </form>
                 <br></br>
                 <h2>Shopping List</h2>
-                <button>Reset</button>
                 <button>Clear</button>
                 <table>
                     <thead>
