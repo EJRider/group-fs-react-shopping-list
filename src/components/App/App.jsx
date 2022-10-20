@@ -1,10 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 import Header from '../Header/Header.jsx'
 import './App.css';
 
+import List from '../List/List'
+
 
 function App() {
+
+    const [list, setList] = useState([]);
+    // On load GET shopping list
+    useEffect(() => {
+        getList()
+    }, [])
+
+    const getList = () => {
+        axios.get('/list')
+        .then(response => {
+            setList(response.data)
+        
+        })
+        .catch(err => {
+            alert('error getting list');
+            console.log(err);
+        })
+    }
+
     return (
         <div className="App">
             <Header />
@@ -35,7 +57,9 @@ function App() {
                         </tr>
                     </thead>
                     <tbody>
-
+                        < List 
+                            list={list}
+                        />
                     </tbody>
                 </table>
             </main>
