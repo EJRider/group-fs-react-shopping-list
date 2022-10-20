@@ -73,7 +73,7 @@ router.delete('/:id', (req,res)=>{
 router.post('/', (req, res) => {
 
     const item = req.body;
-    console.body(item);
+    console.log(item);
 
     const sqlText = `INSERT INTO "list" ("item","quantity","unit")
 	                VALUES ($1, $2, $3);`;
@@ -87,7 +87,7 @@ router.post('/', (req, res) => {
     ]
 
 
-        pool.query(sqlText, [sqlParams])
+        pool.query(sqlText, sqlParams)
             .then((dbRes) => {
                 console.log('POST item complete', item)
                 res.sendStatus(201);

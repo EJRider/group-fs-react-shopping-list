@@ -4,7 +4,7 @@ function ItemForm({ addItem }) {
 
     let [newItemName, setItemName] = useState('');
     let [itemQuantity, setItemQuantity] = useState(0);
-    let [itemUnit, setItemUnit] = useState(0);
+    let [itemUnit, setItemUnit] = useState('');
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -23,7 +23,7 @@ function ItemForm({ addItem }) {
 
             setItemName('');
             setItemQuantity(0);
-            setItemUnit('0');
+            setItemUnit('');
         }
 
 
