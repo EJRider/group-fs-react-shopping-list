@@ -3,10 +3,6 @@ import axios from 'axios';
 
 import Header from '../Header/Header.jsx'
 import './App.css';
-import axios from 'axios';
-
-import List from '../List/List'
-
 import List from '../List/List'
 
 
