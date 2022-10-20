@@ -10,7 +10,7 @@ module.exports = router;
 router.get('/', (req, res) => {
     // Get all list items from database
     const sqlText =    ` SELECT * FROM "list"
-                        ORDER BY "item" ASC
+                        ORDER BY "purchased", "item" ASC
                         `;
     pool.query(sqlText)
         .then((result) => {
@@ -68,8 +68,6 @@ router.delete('/:id', (req,res)=>{
         });
 });
 
-
-
 router.post('/', (req, res) => {
 
     const item = req.body;
@@ -99,3 +97,39 @@ router.post('/', (req, res) => {
 
 
 });
+
+router.put('/:id',(req,res)=>{
+    const taskId=req.params.id;
+    const sqlText = `
+        UPDATE "list"
+        SET "purchased" = TRUE
+        WHERE "id" = $1;
+    `;
+    const sqlParams = [taskId];
+    pool.query(sqlText,sqlParams)
+        .then(dbRes=>{
+            console.log('updating', dbRes);
+            res.sendStatus(200);
+        })
+        .catch(err=>{
+            console.error("error in updating", err);
+            res.sendStatus(500);
+        })
+})
+
+router.put('/', (req,res)=>{
+    const sqlText = `
+        UPDATE "list"
+        SET "purchased" = FALSE;
+    `;
+    pool.query(sqlText)
+        .then(dbRes=>{
+            console.log('resetting table');
+            res.sendStatus(200);
+        })
+        .catch(err =>{
+            console.error('cannot reset table', err);
+            res.sendStatus(500);
+        })
+})
+

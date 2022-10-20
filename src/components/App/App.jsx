@@ -27,7 +27,32 @@ function App() {
             })
     }
 
+
+    const resetPurchases = () =>{
+        axios.put('/list')
+            .then(response =>{
+                console.log('reseting Purchases')
+                getList();
+            })
+            .catch(err =>{
+                console.error('error resetting purchases', err);
+            })
+    }
+
+    const putPurchase = (newId) => {
+        console.log('putPurchase')
+        axios.put(`/list/${newId}`)
+            .then(response =>{
+                console.log('puttingPurchase', response);
+                getList()
+            })
+            .catch(err=>{
+                console.error('error in putPurchase', err);
+            });
+    };
+
     const deleteList = () => {
+
         console.log('deleting List');
         axios.delete('/list/destroy')
             .then(response => {
@@ -37,7 +62,6 @@ function App() {
             .catch(err => {
                 console.error("Error in deleteList", err);
             })
-
 
     }
     const deleteItem = (newId) => {
@@ -81,8 +105,8 @@ function App() {
 
                 <div class='list'>
                     <h2>Shopping List</h2>
-                    <button onClick={deleteList}>Reset</button>
-                    <button>Clear</button>
+                    <button onClick={resetPurchases}>Reset purchases</button>
+                    <button  onClick={deleteList}>Clear table</button>
                     <table>
                         <thead>
                             <tr>
@@ -93,7 +117,7 @@ function App() {
                                     Quantity
                                 </td>
                                 <td>
-                                    Settings
+                                    Actions
                                 </td>
                             </tr>
                         </thead>
@@ -101,6 +125,7 @@ function App() {
                             < List
                                 list={list}
                                 deleteItem={deleteItem}
+                                putPurchase={putPurchase}
                             />
                         </tbody>
                     </table>
